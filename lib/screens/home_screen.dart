@@ -55,14 +55,11 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
-        title: Text(
-          "Gym Store",
-          style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
-        ),
+        title: Text("Gym Store",
+            style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
       ),
       body: ListView(
         children: [
-          // ===== Search Bar =====
           Padding(
             padding: const EdgeInsets.all(20),
             child: TextField(
@@ -79,8 +76,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-
-          // ===== Greeting =====
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
@@ -93,8 +88,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-
-          // ===== Categories =====
           SizedBox(
             height: 115,
             child: ListView.builder(
@@ -104,18 +97,14 @@ class HomeScreen extends StatelessWidget {
               itemBuilder: (context, i) {
                 return Container(
                   margin: const EdgeInsets.symmetric(horizontal: 8),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 12,
-                  ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                   decoration: BoxDecoration(
                     color: cardColor,
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withValues(
-                          alpha: isDark ? 0.3 : 0.04,
-                        ),
+                        color: Colors.black.withValues(alpha: isDark ? 0.3 : 0.04),
                         blurRadius: 15,
                         offset: const Offset(0, 8),
                       ),
@@ -124,11 +113,8 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        categories[i]["icon"],
-                        color: const Color(0xFF00E676),
-                        size: 28,
-                      ),
+                      Icon(categories[i]["icon"],
+                          color: const Color(0xFF00E676), size: 28),
                       const SizedBox(height: 8),
                       Text(
                         categories[i]["name"],
@@ -144,10 +130,8 @@ class HomeScreen extends StatelessWidget {
               },
             ),
           ),
-
-          // ===== Title =====
           Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.fromLTRB(20, 32, 20, 20),
             child: Text(
               "Trendy Products",
               style: GoogleFonts.poppins(
@@ -157,8 +141,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-
-          // ===== Products Grid =====
           GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
@@ -188,9 +170,7 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withValues(
-                          alpha: isDark ? 0.3 : 0.05,
-                        ),
+                        color: Colors.black.withValues(alpha: isDark ? 0.3 : 0.05),
                         blurRadius: 20,
                         offset: const Offset(0, 10),
                       ),
@@ -298,20 +278,17 @@ class HomeScreen extends StatelessWidget {
           if (index == 2) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const ProfileScreen()),
+              MaterialPageRoute(
+                  builder: (context) => const ProfileScreen()),
             );
           }
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: "Wishlist",
-          ),
+              icon: Icon(Icons.favorite), label: "Wishlist"),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag),
-            label: "Cart",
-          ),
+              icon: Icon(Icons.shopping_bag), label: "Cart"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
       ),
